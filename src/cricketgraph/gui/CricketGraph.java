@@ -20,6 +20,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ABHIRAJ
@@ -32,7 +33,7 @@ public class CricketGraph extends javax.swing.JFrame {
     /**
      * Creates new form CricketGraph
      */
-    
+   
     public CricketGraph() throws SQLException {
         initComponents();
         //Input Format JComboBox
@@ -334,7 +335,8 @@ public class CricketGraph extends javax.swing.JFrame {
 
     private void btnBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarActionPerformed
         // TODO add your handling code here:
-        File htmlFile = new File("C:\\Users\\ABHIRAJ\\Documents\\NetBeansProjects\\CricketGraph\\barchart.htm");
+        File htmlFile = new File("barchart.htm");
+//        File htmlFile = new File("C:\\Users\\" + PC + "\\Documents\\NetBeansProjects\\CricketGraph\\barchart.htm");
         try {
             Desktop.getDesktop().browse(htmlFile.toURI());
         } catch (IOException ex) {
@@ -476,8 +478,8 @@ public class CricketGraph extends javax.swing.JFrame {
             while(rs.next()) {
                 str = str + rs.getString("first") + "\t" + rs.getString("format") + "\t" + rs.getInt("year") + "\t" + rs.getInt("score") + "\n";
             }
-            
-            Runtime.getRuntime().exec("Rscript C:\\Users\\ABHIRAJ\\Documents\\R\\cricket.R");
+            Runtime.getRuntime().exec("Rscript cricket.R");
+//            Runtime.getRuntime().exec("Rscript C:\\Users\\" + PC + "\\Documents\\NetBeansProjects\\CricketGraph\\cricket.R");
         } catch(Exception e) {
             e.printStackTrace();
         }
